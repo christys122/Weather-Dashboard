@@ -101,6 +101,16 @@ historyEl.classList = "btn btn-secondary";
   var dateEl = document.getElementById("date-main")
   dateEl.textContent = "(" + dateFormat + ")";
 
+
+  //get and display icon
+ //var weatherIcon = weather[0].icon
+
+ var weatherIcon = document.getElementById("icon")
+ 
+ var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+ 
+ weatherIcon.setAttribute('src', iconUrl);
+
 //update weather info
   var tempData = weather.main.temp;
 
@@ -176,28 +186,28 @@ fetch(dayCastApi)
   var dateObject = new Date(dateData)
   var dateFormat = dateObject.toLocaleString()
 
-  var cardDateEl = document.getElementById("card-date");
+  var cardDateEl = document.getElementById(`card-date-${i}`);
   //var cardDateEl = document.getElementById("date2");
   cardDateEl.textContent = dateFormat;
   // wind
   var iconData = forecastData[i].weather.icon;
-  var iconEl = document.getElementById("card-icon");
+  var iconEl = document.getElementById(`card-icon-${i}`);
   iconEl.textContent = iconData;
 
   var cardTempData = forecastData[i].temp.day;
 
-  var cardTempEl = document.getElementById("card-temp");
+  var cardTempEl = document.getElementById(`card-temp-${i}`);
   cardTempEl.textContent = cardTempData;
   // wind
-  var cardWindData = forecastData[i].weather.wind_speed;
+  var cardWindData = forecastData[i].wind_speed;
 
-  var cardWindEl = document.getElementById("card-wind");
+  var cardWindEl = document.getElementById(`card-wind-${i}`);
   cardWindEl.textContent = cardWindData;
   
   //humid
   var humidData = forecastData[i].humidity;
 
-  var humidEl = document.getElementById("humid");
+  var humidEl = document.getElementById(`humid-${i}`);
   humidEl.textContent = humidData;
   
 }
