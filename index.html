@@ -1,57 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="./assets./style.css">
-    <title>Weather Dashboard</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="./assets./style.css">
+  <title>Weather Dashboard</title>
 </head>
+
 <body>
-    <header>
-      <div class = "container">
+  <header>
+    <div class="container-fluid">
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <h1 class="navbar-brand mb-0 h1">Weather Dashboard</h1>
-       <div>
+          <div>
       </nav>
-    </header>    
-      </div>
-      <main>
-        <div class="container">
-          <div class="row align-items-start">
-            <div class="col-4">
-              <form id ="searchForm">
-                <div class="mb-3">
-                  <label for="searchform" class="form-label">Search for a City:</label>
-                    <input type="searchInput" id="inputCity" class="form-control" aria-describedby="passwordHelpBlock"></input>
-                    <div id="passwordHelpBlock" class="form-text">
-                      <div class="mb-3 form-check"></div>
-                        <button type="submit" class="btn btn-primary">Search</button>
-                    </div>   
-                </div>  
-               </form>          
-              One of three columns
-            </div>
-            <div class="col-8">
-              <h2 class="title"><span id="returnCity"></span><span id="date"></span><span id="icon"></span></h2>
-                <div class="main" id="weatherContainer"></div>
-                <ul class="winfo">
-                  <li>Temp:<p id="temp"></p></li>
-                  <li>Wind:<p id="wind"></p></li>
-                  <li>Humidity:<p id="humidity"></p></li>
-                  <li>UV Index:<p id="uv"></p></li>
-                </ul>
+  </header>
+  </div>
+  <main>
+    <div class="container-fluid">
+      <div class="row align-items-start">
+        <div class="col-3">
+          <form id="searchForm">
+            <div class="mb-3">
+              <label for="searchform" class="form-label">Search for a City:</label>
+              <input type="searchInput" id="inputCity" class="form-control"></input>
+              <div id="Block" class="form-text">
+                <div class="mb-3 form-check"></div>
+                <button type="submit" class="btn btn-primary">Search</button>
               </div>
-              One of three columns
-            </div>
-            
-          </div>
-      </main> 
-      <div class = "card container"></div>
-    <!--https://cdnjs.cloudflare.com/ajax/libs/open-weather/2.0.0/openweather.min.js--> 
 
-    <script src="./assets/script.js"></script>
+          </form>
+          <div class="container" id="searchHistory">
+            <div class="row align-items-start">
+              <button class="btn btn-secondary" id="history">example</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="weather-box  border border-dark pb-.5">
+          <h2 class="title"><span id="returnCity"></span><span id="date-main"></span><span id="icon"></span></h2>
+          <div class="main mb-1" id="weatherContainer"></div>
+            <ul class="winfo">
+            <li>Temp:<p id="temp"></p>
+            </li>
+            <li>Wind:<p id="wind"></p>
+            </li>
+            <li>Humidity:<p id="humidity"></p>
+            </li>
+            <li>UV Index:<p id="uv"></p>
+            </li>
+          </ul>
+        </div> 
+        <!--Start forecast card section main container-->
+        <h2>5-Day Forecast:</h2>
+        <div class=" d-flex flex-wrap card-container container-fluid mt-1">
+         
+            <!--<div class="col"> -->
+              <div class="p-2 flex-fill card bg-secondary text-white">
+                  <div>
+                  <h5 class="card-title" id="card-date"></h5>
+                  <p class="card-icon" id="card-icon"></p>
+                  <span>Temp:</span><p class="card-text1" id="card-temp"></p>
+                  <span>Wind:</span><p class="card-text2" id="card-wind"></p>
+                  <span>Humidity: </span><p class="card-text3" id="humid"></p>
+                  </div>
+              </div>
+            
+            <!--<div class="container-fluid">-->
+              <div class="p-2 flex-fill card bg-secondary text-white">
+                  <div>
+                  <h5 class="card-title" id="card-date"></h5>
+                  <p class="card-icon" id="card-icon"></p>
+                  <span>Temp:</span><p class="card-text1" id="card-temp"></p>
+                  <span>Wind:</span><p class="card-text2" id="card-wind"></p>
+                  <span>Humidity: </span><p class="card-text3" id="humid"></p>
+                  </div>
+              </div>
+            
+           <!-- <div class="col"> -->
+              <div class="p-2 flex-fill card bg-secondary text-white">
+                  <div>
+                  <h5 class="card-title" id="card-date"></h5>
+                  <p class="card-icon" id="card-icon"></p>
+                  <span>Temp:</span><p class="card-text1" id="card-temp"></p>
+                  <span>Wind:</span><p class="card-text2" id="card-wind"></p>
+                  <span>Humidity: </span><p class="card-text3" id="humid"></p>
+                  </div>
+              </div>
+            
+          <!-- <div class="col card-col" > -->
+            <div class="p-2 flex-fill card bg-secondary text-white">
+                  <div>
+                  <h5 class="card-title" id="card-date"></h5>
+                  <p class="card-icon" id="card-icon"></p>
+                  <span>Temp:</span><p class="card-text1" id="card-temp"></p>
+                  <span>Wind:</span><p class="card-text2" id="card-wind"></p>
+                  <span>Humidity: </span><p class="card-text3" id="humid"></p>
+                  </div>
+              </div>
+            
+          <!--  <div class="col"> -->
+              <div class="p-2 flex-fill card bg-secondary text-white">
+                    <div>
+                    <h5 class="card-title" id="card-date"></h5>
+                    <p class="card-icon" id="card-icon"></p>
+                    <span>Temp:</span><p class="card-text1" id="card-temp"></p>
+                    <span>Wind:</span><p class="card-text2" id="card-wind"></p>
+                    <span>Humidity: </span><p class="card-text3" id="humid"></p>
+                    </div>
+              </div>
+        
+        </div><!--main card container-->
+
+      </div>
+  </main>
+
+
+  
+
+  <script src="./assets/script.js"></script>
 </body>
+
 </html>
