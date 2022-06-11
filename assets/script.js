@@ -19,7 +19,7 @@
 var searchFormEl = document.querySelector("#searchForm")
 var cityInputEl = document.querySelector("#inputCity");
 var weatherContainerEl = document.querySelector("#weatherContainer");
-var searchTermEl = document.querySelector("#returnCity");
+var searchTermEl = document.querySelector("#return-city");
 var listEl = document.querySelector("#winfo")
 var cardContainerEl = document.querySelector(".card-container")
 
@@ -50,7 +50,7 @@ var getWeatherData = function (city1) {
     .then(function (weather) {
 
       displayWeather(weather, city1 + " ");
-console.log(weather);
+
       coord(weather);
 
     })
@@ -70,18 +70,38 @@ console.log(weather);
 
 var displayWeather = function (weather, searchTerm) {
 
+  searchTermEl.textContent = weather.name;
+  console.log();
+
+//save to local storage
+function searchHistory() {
+  localStorage.setItem("city", searchTerm);
+}
+searchHistory()
+
+// function getValue() {
+//   return 
+var cityEl = localStorage.getItem("city");
+document.getElementById("history").innerHTML = cityEl
+
+console.log(cityEl);
+var cityName = cityEl
+console.log(cityName);
+var historyEl = document.createElement("button");
+historyEl.classList = "btn btn-secondary";
+// labelEl = getValue
 
 
-  searchTermEl.textContent = searchTerm;
-  //select each item using loop
 
+
+  //get and format date\\
   var dateMain = weather.dt*1000;
   var dateObject1 = new Date(dateMain)
   var dateFormat = dateObject1.toLocaleString()
   var dateEl = document.getElementById("date-main")
   dateEl.textContent = "(" + dateFormat + ")";
 
-
+//update weather info
   var tempData = weather.main.temp;
 
   var tempEl = document.getElementById("temp");
