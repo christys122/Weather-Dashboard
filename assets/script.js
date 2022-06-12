@@ -1,19 +1,3 @@
-// points needed:
-// by city
-//current weather conditions - with icons
-// date
-// temp
-//humidity
-//wind speed
-//UV index - with icon change color based on favorable moderat or severe
-
-
-// Cards Section 5 day forcast 
-// date, icon, temp, wind speed, humidity
-
-//search history list of cities (calls data)
-
-
 //Global var
 var searchFormEl = document.querySelector("#searchForm")
 var cityInputEl = document.querySelector("#inputCity");
